@@ -6,6 +6,8 @@ package W1Model;
 
 import java.util.ArrayList;
 import W1View.Validation;
+import java.util.Comparator;
+import java.util.function.Predicate;
 
 /**
  *
@@ -65,6 +67,18 @@ public class School {
             student.displayNameGpa();
         }
         
+    }
+   public ArrayList<Student> searchMethod(Predicate<Student> p) {
+        ArrayList<Student> list = new ArrayList<>();
+        for (Student st : StudentList) {
+            if (p.test(st)) {
+                list.add(st);
+            }
+        }
+        return list;
+    }
+   public void sortMethod(Comparator<Student> c){
+        StudentList.sort(c);
     }
     public void display(){
         for (Student student : StudentList) {
