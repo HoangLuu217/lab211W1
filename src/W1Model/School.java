@@ -6,6 +6,7 @@ package W1Model;
 
 import java.util.ArrayList;
 import W1View.Validation;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
@@ -16,7 +17,9 @@ import java.util.function.Predicate;
 public class School {
 
     public ArrayList<Student> StudentList = new ArrayList<>();
-    public Validation valid = new Validation();;
+    public Validation valid = new Validation();
+
+    ;
 
     public School() {
     }
@@ -46,7 +49,7 @@ public class School {
     }
 
     public void addNewItStu() {
-        
+
         int type = valid.getValueInt("chon 1: hoc sinh IT. 2: hoc sinh Biz.", 1, 2);
         String id = Validation.getValue("nhap id hoc sinh: ");
         String fullName = Validation.getValue("nhap ten hoc sinh: ");
@@ -62,13 +65,15 @@ public class School {
         }
 
     }
-    public void exportList(){
-        for(Student student : StudentList){
+
+    public void exportList() {
+        for (Student student : StudentList) {
             student.displayNameGpa();
         }
-        
+
     }
-   public ArrayList<Student> searchMethod(Predicate<Student> p) {
+
+    public ArrayList<Student> searchMethod(Predicate<Student> p) {
         ArrayList<Student> list = new ArrayList<>();
         for (Student st : StudentList) {
             if (p.test(st)) {
@@ -77,10 +82,12 @@ public class School {
         }
         return list;
     }
-   public void sortMethod(Comparator<Student> c){
-        StudentList.sort(c);
+
+    public void sortMethod() {
+        Collections.sort(StudentList);
     }
-    public void display(){
+
+    public void display() {
         for (Student student : StudentList) {
             student.displayDetail();
         }

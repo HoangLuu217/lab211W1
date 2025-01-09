@@ -8,7 +8,7 @@ package W1Model;
  *
  * @author Admin
  */
-public abstract class Student {
+public abstract class Student implements Comparable<Student> {
 
     public String id;
     public String fullName;
@@ -52,9 +52,9 @@ public abstract class Student {
     public String toString() {
         return "Student{" + "id=" + id + ", fullName=" + fullName + ", address=" + address + '}';
     }
-    
-
-    
-
+    @Override
+    public int compareTo(Student other) {
+        return this.fullName.compareTo(other.fullName);
+    }
 
 }
