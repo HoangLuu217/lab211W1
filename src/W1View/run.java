@@ -22,7 +22,8 @@ public class run {
       sc.addNewItStu();
       sc.addNewItStu();
       sc.exportList();
-      
+      sc.sortMethod();
+      sc.exportList();
     }
     
 }
